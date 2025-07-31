@@ -19,7 +19,7 @@ public class ContractSpecification {
       if (filterDto != null && filterDto.getSearch() != null && !filterDto.getSearch().isEmpty()) {
         String searchValue = "%" + filterDto.getSearch().toLowerCase() + "%";
         Predicate contractNumberPredicate = criteriaBuilder.like(
-            criteriaBuilder.lower(root.get("contract").get("contractNumber")), searchValue);
+            criteriaBuilder.lower(root.get("contractNumber")), searchValue);
         predicates.add(contractNumberPredicate);
       }
       return predicates.isEmpty() ? null : criteriaBuilder.and(predicates.toArray(new Predicate[0]));
